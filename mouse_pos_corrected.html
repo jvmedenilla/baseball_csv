@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mouse Position Display</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <p>The mouse is located at position (<span id="xPos"></span>, <span id="yPos"></span>), and is <span id="dist"></span> pixels from the lower-left corner.</p>
+  <script>
+    $(document).mousemove(function(event){
+      updateXY(event);
+      
+      var dist = Math.sqrt(x**2 + y**2);
+      $('#dist').text(dist);
+    });
+
+    var x, y;
+
+    function updateXY(event){
+      x = event.pageX;
+      y = event.pageY;
+
+      $('#xPos').text(x);
+      $('#yPos').text(y);
+    }
+  </script>
+</body>
+</html>
